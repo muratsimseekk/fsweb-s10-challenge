@@ -6,7 +6,7 @@ import { s10chLocalStorageKey } from "../reducers";
 
 const PostList = () => {
   // const notlar = [];
-  const {notlar} = baslangicNotlariniGetir(s10chLocalStorageKey);
+  const notlar =  useSelector(state => state.notlar)
   console.log(notlar);
   const dispatch = useDispatch();
 
