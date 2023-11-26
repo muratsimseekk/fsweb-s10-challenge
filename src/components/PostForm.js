@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { useHistory } from "react-router";
 import Gratitude from "./../assets/grForm.png";
 import { useDispatch } from "react-redux";
-import { notEkleAPI } from "../actions";
+import { notEkle, notEkleAPI } from "../actions";
 
 export default function PostForm() {
   const {
@@ -27,9 +27,10 @@ export default function PostForm() {
 
     // burada ilgili eylemi dispatch edin
     dispatch(notEkleAPI(yeniNot));
+    console.log(yeniNot);
     // toast mesajı gösterin
     // sonra aşağıdaki satırı aktifleştirin
-    // setTimeout(() => history.push("/notlar"), 2000);
+    setTimeout(() => history.push("/notlar"), 2000);
   }
 
   const inputCx = "border border-zinc-300 h-9 rounded-none text-sm px-2 w-full";

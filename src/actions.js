@@ -16,6 +16,7 @@ export const notEkleAPI = (yeniNot) => dispatch => {
     .then((res) => {
       if (res.status === 200) {
         dispatch(notEkle(yeniNot))
+        console.log(res.data);
         // res.data objesi içerisinden ihtiyaç duyduğunuz değeri bulun ve oluşturduğunuz notEkle ile dispatch edin
       }
     })
