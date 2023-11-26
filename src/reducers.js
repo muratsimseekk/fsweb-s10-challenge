@@ -27,3 +27,7 @@ function baslangicNotlariniGetir(key) {
     return baslangicDegerleri
   }
 }
+
+export function myReducer (state =baslangicDegerleri , action) {
+
+}
