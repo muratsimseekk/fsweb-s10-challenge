@@ -32,11 +32,18 @@ function baslangicNotlariniGetir(key) {
 
 export function myReducer (state =baslangicDegerleri , action) {
     switch (action.type) {
+        
       case NOT_EKLE :
-        return {...state , notlar : [...state.notlar , action.payload]}
+        const newNot = {...state , notlar : [...state.notlar , action.payload]}
+        localStorageStateYaz(s10chLocalStorageKey , newNot)
+        return newNot;
+        return 
         
       case NOT_SIL : {
-        return {...state , notlar : state.notlar.filter(item => item.id !==action.payload)}
+        const remaningNotes = state.notlar.filter(item => item.id !== action.payload);
+        const newState = {...state , notlar : remaningNotes};
+        localStorageStateYaz(s10chLocalStorageKey , newState)
+        return newState;
       }
       default:
         return state;
