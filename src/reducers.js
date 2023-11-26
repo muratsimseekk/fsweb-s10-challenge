@@ -1,6 +1,8 @@
+import { toast } from "react-toastify";
 import { NOT_EKLE, NOT_SIL,  BASLANGIC_NOTLARI_GETIR } from "./actions";
 
 export const s10chLocalStorageKey = "s10ch";
+
 
 const baslangicDegerleri = {
   notlar:  [
@@ -34,6 +36,9 @@ export function myReducer (state =baslangicNotlariniGetir(s10chLocalStorageKey) 
     switch (action.type) {
         
       case NOT_EKLE :
+        const id = toast.loading("Please wait...")
+          //do something else
+        toast.update(id, { render: "All is good", type: "success", isLoading: false });
         const newNot = {...state , notlar : [...state.notlar , action.payload]}
         localStorageStateYaz(s10chLocalStorageKey , newNot)
         return newNot;

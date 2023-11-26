@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,6 +19,7 @@ root.render(
   <Provider store={depo}>
   <BrowserRouter>
     <>
+    <ToastContainer />
       <App />
     </>
   </BrowserRouter>
