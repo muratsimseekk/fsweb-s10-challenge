@@ -1,9 +1,9 @@
-import { NOT_EKLE, NOT_SIL, notEkle } from "./actions";
+import { NOT_EKLE, NOT_SIL,  BASLANGIC_NOTLARI_GETIR } from "./actions";
 
-const s10chLocalStorageKey = "s10ch";
+export const s10chLocalStorageKey = "s10ch";
 
 const baslangicDegerleri = {
-  notlar: [
+  notlar:  [
     {
       id: "75g1IyB8JLehAr0Lr5v3p",
       date: "Fri Feb 03 2023 09:40:27 GMT+0300 (GMT+03:00)",
@@ -20,7 +20,7 @@ function localStorageStateOku(key) {
   return JSON.parse(localStorage.getItem(key));
 }
 
-function baslangicNotlariniGetir(key) {
+export function baslangicNotlariniGetir(key) {
   const eskiNotlar = localStorage.getItem(key);
 
   if (eskiNotlar) {
@@ -37,7 +37,7 @@ export function myReducer (state =baslangicDegerleri , action) {
         const newNot = {...state , notlar : [...state.notlar , action.payload]}
         localStorageStateYaz(s10chLocalStorageKey , newNot)
         return newNot;
-        return 
+        
         
       case NOT_SIL : {
         const remaningNotes = state.notlar.filter(item => item.id !== action.payload);
